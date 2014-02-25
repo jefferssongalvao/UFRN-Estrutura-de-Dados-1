@@ -219,7 +219,7 @@ int main() {
     Escrita.open("output.csv"); // Inicialização do arquivo que será gravada a saída dos dados
 
     for(*i = 1; *i <= 3; (*i)++){
-        Escrita << "Cenário " << *i+1 << ".\n";
+        Escrita << "Cenário " << *i << ".\n";
         for(*j = 0; *j < 5; (*j)++){
             testeAlgoritmo(*i, time1, time2, time3, tamanhos[*j]);
             Escrita << "Tamanho do vetor:" << tamanhos[*j] << ".\n";
