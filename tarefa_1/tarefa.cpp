@@ -161,76 +161,42 @@
         struct timeval t0, t1; // estruturas usadas para cálculo do tempo de execução
         int *v = new int[size]; // alocação do vetor
 
-        switch(op){
-            // Primeiro cenário
-                case 1:
-                    geraArrayAleatorio(v, size); // criação do array
+        // Escolha do cenário
+            switch(op){
+                // Primeiro cenário
+                    case 1:
+                        geraArrayAleatorio(v, size); // criação do array
+                        break;
+                // Segundo cenário
+                    case 2:
+                        geraArrayAleatorio_crescente(v, size, 0);  // criação do array
+                        break;
+                // terceiro cenário
+                    case 3:
+                        geraArrayAleatorio_decrescente(v, size, 0);  // criação do array
+                        break;
+            }
+        // Execução dos algoritmos de ordenação
+            // selectionSort
+                gettimeofday(&t0, NULL);
+                    *time1  = 0.0;
+                    selectionSort(v, size);
+                gettimeofday(&t1, NULL);
+                (*time1) += ((t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec)/(double)1000;
 
-                    // selectionSort
-                        gettimeofday(&t0, NULL);
-                            *time1  = 0.0;
-                            selectionSort(v, size);
-                        gettimeofday(&t1, NULL);
-                        (*time1) += ((t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec)/(double)1000;
+            // bubbleSort
+                gettimeofday(&t0, NULL);
+                    *time2  = 0.0;
+                    bubbleSort(v, size);
+                gettimeofday(&t1, NULL);
+                (*time2) += ((t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec)/(double)1000;
 
-                    // bubbleSort
-                        gettimeofday(&t0, NULL);
-                            *time2  = 0.0;
-                            bubbleSort(v, size);
-                        gettimeofday(&t1, NULL);
-                        (*time2) += ((t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec)/(double)1000;
-
-                    // insertionSort
-                        gettimeofday(&t0, NULL);
-                            *time3  = 0.0;
-                            insertionSort(v, size);
-                        gettimeofday(&t1, NULL);
-                        (*time3) += ((t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec)/(double)1000;
-
-                    break;
-            // Segundo cenário
-                case 2:
-                    geraArrayAleatorio_crescente(v, size, 0);  // criação do array
-                    gettimeofday(&t0, NULL);
-                        *time1  = 0.0;
-                        selectionSort(v, size);
-                    gettimeofday(&t1, NULL);
-                    (*time1) += ((t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec)/(double)1000;
-
-                    gettimeofday(&t0, NULL);
-                        *time2  = 0.0;
-                        bubbleSort(v, size);
-                    gettimeofday(&t1, NULL);
-                    (*time2) += ((t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec)/(double)1000;
-
-                    gettimeofday(&t0, NULL);
-                        *time3  = 0.0;
-                        insertionSort(v, size);
-                    gettimeofday(&t1, NULL);
-                    (*time3) += ((t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec)/(double)1000;
-                    break;
-            // terceiro cenário
-                case 3:
-                    geraArrayAleatorio_decrescente(v, size, 0);  // criação do array
-                    gettimeofday(&t0, NULL);
-                        *time1  = 0.0;
-                        selectionSort(v, size);
-                    gettimeofday(&t1, NULL);
-                    (*time1) += ((t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec)/(double)1000;
-
-                    gettimeofday(&t0, NULL);
-                        *time2  = 0.0;
-                        bubbleSort(v, size);
-                    gettimeofday(&t1, NULL);
-                    (*time2) += ((t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec)/(double)1000;
-
-                    gettimeofday(&t0, NULL);
-                        *time3  = 0.0;
-                        insertionSort(v, size);
-                    gettimeofday(&t1, NULL);
-                    (*time3) += ((t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec)/(double)1000;
-                    break;
-        }
+            // insertionSort
+                gettimeofday(&t0, NULL);
+                    *time3  = 0.0;
+                    insertionSort(v, size);
+                gettimeofday(&t1, NULL);
+                (*time3) += ((t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec)/(double)1000;
 
         // desalocação do vetor
             delete v;
@@ -247,12 +213,8 @@ int main() {
             double *time3 = new double; // variável de tempo para o algoritmo insertionSort
 
         // Criação do vetor com os tamanho
-        int *tamanhos = new int[5];
-            tamanhos[0] = 100;
-            tamanhos[1] = 300;
-            tamanhos[2] = 500;
-            tamanhos[3] = 800;
-            tamanhos[4] = 1000;
+            int *tamanhos = new int[5];
+                tamanhos[0] = 100; tamanhos[1] = 300; tamanhos[2] = 500; tamanhos[3] = 800; tamanhos[4] = 1000;
 
     std::ofstream Escrita; // instância o objeto para manipulaão de arquivos
     Escrita.open("output.csv"); // Inicialização do arquivo que será gravada a saída dos dados
