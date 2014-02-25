@@ -99,7 +99,6 @@
             // desalocação de variável
                 delete min;
                 delete aux;
-                delete i;
                 delete j;
         }
 
