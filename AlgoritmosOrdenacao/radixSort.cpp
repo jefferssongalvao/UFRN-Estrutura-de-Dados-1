@@ -50,7 +50,7 @@
 		// alocação das váriaveis
 			int *i = new int; // para intereção nos laços
 			int *maior = new int; // identifica qual é o maior número do vetor
-			int *exp = new int; // usado para 
+			int *exp = new int; // variável usada para calcular o digito da vez
 			int *b = new int[n]; // vetor auxiliar
 		
 		*exp = 1; // inicializando a variavel
@@ -61,33 +61,61 @@
 				if(v[*i] > *maior) // testa se o elemento atual é maior que o maior atual
 					*maior = v[*i];
 			}
+		// vetor auxiliar que guarda a quantidade referente ao digito
+			int *bucket = new int[10];
+
 		// Ordenação
 			while( (*maior / *exp) > 0 ){
-				int *bucket = new int[10];
-				for(*i = 0; *i < n; (*i)++)
-					bucket[( v[*i]/ *exp) %10]++;
 
-				for(*i = 1; *i < 10; (*i)++)
-					bucket[*i] += bucket[*i - 1];
+				// laço para incrementar a posição do digito do elemento do vetor v
+					for(*i = 0; *i < n; (*i)++)
+						bucket[( v[*i]/ *exp) %10]++;
 
-				for(*i = n-1; *i >= 0; (*i)--) {
-					b[--bucket[(v[*i] / *exp) % 10]] = v[*i];
-				}
+				// laço para guardar na posição do digito quantos números tem dessa posição para trás
+					for(*i = 1; *i < 10; (*i)++)
+						bucket[*i] += bucket[*i - 1];
 
-				for(*i = 0; *i < n; (*i)++)
-					v[*i] = b[*i];
+				/*
+				 * Faz a ordenação pelo digito do vetor v na posição i,
+				 * colocando cada elemento na posição do vetor auxiliar b,
+				 * sendo a posição determinada de acordo com a quantidade de elementos
+				 * que foi determinada na laço anterior
+				 */
+					for(*i = n-1; *i >= 0; (*i)--)
+						b[--bucket[(v[*i] / *exp) % 10]] = v[*i];
+
+				// Coloca os elementos ordenados de b em v
+					for(*i = 0; *i < n; (*i)++)
+						v[*i] = b[*i];
+
 				*exp *= 10;
+				// desalocação
 			}
+
+		// desalocação
+			delete i;
+			delete maior;
+			delete exp;
+			delete b;
+			delete bucket;
 	}
-int main(){
-	int *v = new int[10];
-	int *i = new int;
 
-	geraArrayAleatorio(v, 10);
-	
-	imprimir(v,10);
-	radixSort(v, 10);
-	imprimir(v,10);
+// programa principal
+	int main(){
+		// alocação das váriaveis
+			int *v = new int[10];
+			int *i = new int;
 
-	return 0;
-}
+		geraArrayAleatorio(v, 10); // gerando array para o teste
+		
+		// teste de ordenação
+			std::cout << "O vetor antes da ordenação: "; imprimir(v,10);
+				radixSort(v, 10);
+			std::cout << "O vetor depois da ordenação: "; imprimir(v,10);
+
+		// desalocação das váriaveis
+			delete v;
+			delete i;
+
+		return 0;
+	}
