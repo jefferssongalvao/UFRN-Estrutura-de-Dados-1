@@ -15,26 +15,25 @@
 		// alocação das váriaveis
 			int *i   = new int;
 			int *j   = new int;
-			int *aux = new int; // aux para troca de posições
 			int *key = new int;
 
 		//ordenação
-			for(*i = 0; *i < n-1; (*i)++){
-				*key = *i + 1;
-				for(*j = *i; *j >= 0; (*j)--){
-					if(v[*key] < v[*j]) {
-						*aux    = v[*key];
-						v[*key] = v[*j];
-						v[*j] = *aux;
-						(*key)--;
-					} else *j == 0;
-				}
-			}
+            for (*i = 1; *i < n; (*i)++) {
+                // considera o elemento i removido de A
+                    *key = v[*i];
+                    *j = *i - 1;
+                while (*j >= 0 && *key < v[*j]){
+                    // deslocando os elementos em B
+                        v[*j+1] = v[*j];
+                        (*j)--;
+                }
+                // insere o elemento na posição ordenada em B
+                    v[*j+1] = *key;
+            }
 
 		// desalocação das váriaveis
 			delete i;
 			delete j;
-			delete aux;
 			delete key;
 	}
 
