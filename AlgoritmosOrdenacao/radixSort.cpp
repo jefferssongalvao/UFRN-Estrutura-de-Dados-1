@@ -64,20 +64,15 @@
 		// Ordenação
 			while( (*maior / *exp) > 0 ){
 				int *bucket = new int[10];
-				preenche(bucket, 10);
-				imprimir(bucket, 10);
 				for(*i = 0; *i < n; (*i)++)
 					bucket[( v[*i]/ *exp) %10]++;
-
-				imprimir(bucket, 10);
 
 				for(*i = 1; *i < 10; (*i)++)
 					bucket[*i] += bucket[*i - 1];
 
-				imprimir(bucket, 10);
-
-				for(*i = n; *i >= 0; (*i)--)
+				for(*i = n-1; *i >= 0; (*i)--) {
 					b[--bucket[(v[*i] / *exp) % 10]] = v[*i];
+				}
 
 				for(*i = 0; *i < n; (*i)++)
 					v[*i] = b[*i];
