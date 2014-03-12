@@ -48,22 +48,32 @@
 		}
 // Selection Sort
 	void selectionSort(int v[], int n){
-		int *i   = new int;
-		int *j   = new int;
-		int *aux = new int;
-		int *min = new int;
-		for(*i = 0; *i < n; (*i)++){
-			*min = *i;
-			for(*j = *i; *j < n; (*j)++){
-				if(v[*j] < v[*min])
-					*min = *j;
+		// alocação das váriaveis
+			int *i   = new int;
+			int *j   = new int;
+			int *aux = new int; // aux para troca de posições
+			int *min = new int; // posição do menor número na faixa do vetor
+
+		//ordenação
+			for(*i = 0; *i < n; (*i)++){
+				*min = *i; // pega o inicio da faixa do vetor
+				for(*j = *i; *j < n; (*j)++){
+					// verifica qual a posição do menor número da faixa do vetor
+						if(v[*j] < v[*min])
+							*min = *j;
+				}
+				if(*i != *min) { // se a posição mudou da inicial fará a troca
+					*aux    = v[*i];
+					v[*i]   = v[*min];
+					v[*min] = *aux;
+				}
 			}
-			if(*i != *min){
-				*aux    = v[*i];
-				v[*i]   = v[*min];
-				v[*min] = *aux;
-			}
-		}
+
+		// desalocação das váriaveis
+			delete i;
+			delete j;
+			delete aux;
+			delete min;
 	}
 
 // programa principal
