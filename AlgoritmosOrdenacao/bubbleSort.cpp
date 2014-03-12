@@ -57,7 +57,7 @@
 		//ordenação
 			for(*i = 0; *i < n; (*i)++){
 				for(*j = *i+1; *j < n; (*j)++){
-					if(v[*i] > v[*j]) {
+					if(v[*i] > v[*j]) { // verifica quem é o maior e troca se for o primeiro
 						*aux    = v[*i];
 						v[*i]   = v[*j];
 						v[*j] = *aux;
