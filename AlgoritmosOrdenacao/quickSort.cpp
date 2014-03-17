@@ -1,7 +1,10 @@
 /*
- * O Radix sort é um algoritmo de ordenação rápido e estável
- * que pode ser usado para ordenar itens que estão identificados por chaves únicas.
- * Cada chave pode ser uma cadeia de caracteres (ordem lexicografia) ou número.
+ * O algoritmo Quicksort é um método de ordenação muito rápido e eficiente, 
+ * inventado por C.A.R. Hoare em 19601 , quando visitou a Universidade de Moscovo como estudante. 
+ * Naquela época, Hoare trabalhou em um projeto de tradução de máquina para o National Physical Laboratory. 
+ * Ele criou o 'Quicksort ao tentar traduzir um dicionário de inglês para russo, ordenando as palavras, 
+ * tendo como objetivo reduzir o problema original em subproblemas que possam ser resolvidos mais facil 
+ * e rapidamente. Foi publicado em 1962 após uma série de refinamentos.
  */
 	// Quick Sort
         void quickSort(int vetor[], int inicio, int fim){

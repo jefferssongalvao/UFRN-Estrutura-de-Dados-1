@@ -1,7 +1,12 @@
 /*
- * O Radix sort é um algoritmo de ordenação rápido e estável
- * que pode ser usado para ordenar itens que estão identificados por chaves únicas.
- * Cada chave pode ser uma cadeia de caracteres (ordem lexicografia) ou número.
+ * O merge sort, ou ordenação por mistura, é um exemplo de algoritmo de ordenação
+ * do tipo dividir-para-conquistar.
+ *
+ * Sua ideia básica consiste em Dividir(o problema em vários sub-problemas e resolver esses 
+ * sub-problemas através da recursividade) e Conquistar(após todos os sub-problemas
+ * terem sido resolvidos ocorre a conquista que é a união das resoluções dos sub-problemas).
+ * Como o algoritmo do Merge Sort usa a recursividade em alguns problemas esta técnica não é muito 
+ * eficiente devido ao alto consumo de memória e tempo de execução.
  */
 	// Merge Sort
         void merge(int vec[], int vecSize) {
