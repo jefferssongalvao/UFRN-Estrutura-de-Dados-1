@@ -3,13 +3,8 @@
  * que pode ser usado para ordenar itens que estão identificados por chaves únicas.
  * Cada chave pode ser uma cadeia de caracteres (ordem lexicografia) ou número.
  */
-
-#include <iostream>
-#include <cstdlib> // para uso da função hand()
-#include "funcoes.h" // biblioteca de funções auxiliares para essa aplicação
-
 // Radix Sort
-	void radixSort(int v[], int n){
+	void ordena(int v[], int n){
 		// alocação das váriaveis
 			int *i = new int; // para intereção nos laços
 			int *maior = new int; // identifica qual é o maior número do vetor
@@ -29,6 +24,7 @@
 
 		// Ordenação
 			while( (*maior / *exp) > 0 ){
+				preenche(bucket, 10);
 
 				// laço para incrementar a posição do digito do elemento do vetor v
 					for(*i = 0; *i < n; (*i)++)
@@ -52,7 +48,6 @@
 						v[*i] = b[*i];
 
 				*exp *= 10;
-				// desalocação
 			}
 
 		// desalocação
@@ -61,24 +56,4 @@
 			delete exp;
 			delete b;
 			delete bucket;
-	}
-
-// programa principal
-	int main(){
-		// alocação das váriaveis
-			int *v = new int[10];
-			int *i = new int;
-
-		geraArrayAleatorio(v, 10); // gerando array para o teste
-		
-		// teste de ordenação
-			std::cout << "O vetor antes da ordenação: "; imprimir(v,10);
-				radixSort(v, 10);
-			std::cout << "O vetor depois da ordenação: "; imprimir(v,10);
-
-		// desalocação das váriaveis
-			delete v;
-			delete i;
-
-		return 0;
 	}

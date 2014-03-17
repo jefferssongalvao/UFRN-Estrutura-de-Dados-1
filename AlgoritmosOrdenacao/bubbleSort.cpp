@@ -5,11 +5,6 @@
  * Essa movimentação lembra a forma como as bolhas em um tanque de água procuram seu próprio nível,
  * e disso vem o nome do algoritmo.
  */
-
-#include <iostream>
-#include <cstdlib> // para uso da função hand()
-#include "funcoes.h" // biblioteca de funções auxiliares para essa aplicação
-
 // Bubble Sort
 	void bubbleSort(int v[], int n){
 		// alocação das váriaveis
@@ -32,24 +27,4 @@
 			delete i;
 			delete j;
 			delete aux;
-	}
-
-// programa principal
-	int main(){
-		// alocação das váriaveis
-			int *v = new int[10];
-			int *i = new int;
-
-		geraArrayAleatorio(v, 10); // gerando array para o teste
-		
-		// teste de ordenação
-			std::cout << "O vetor antes da ordenação: "; imprimir(v,10);
-				bubbleSort(v, 10);
-			std::cout << "O vetor depois da ordenação: "; imprimir(v,10);
-
-		// desalocação das váriaveis
-			delete v;
-			delete i;
-
-		return 0;
 	}
