@@ -10,7 +10,6 @@
             srand(time(NULL));
             // alocação de variável
                 int *i = new int;
-
             for(*i = 0; *i < N; (*i)++) v[*i] = (rand() % 100);
 
             // desalocação de variável
