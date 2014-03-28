@@ -73,7 +73,7 @@ int main(){
 			cout << v2[i] << " ";
 		cout << "}.\n\n";
 
-	// 
+	// elemento que não pode aparecer no vetor 3
 		cout << "Este elemento não poderá aparecer no vetor 3: " << target << ".\n\n";
 
 	int N3 = mistura(v1, N1, v2, N2, v3, target); // recebe o tamanho do vetor 3 (v3) e preenche o mesmo
