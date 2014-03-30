@@ -8,7 +8,7 @@ int mistura(int L1[], int N1, int L2[], int N2, int L3[], int target){
 	// menor número e tamanho do vetor resultado (#L3 = N3 = N1 + N2)
 		int min, N3 = N1 + N2;
 	// variável de teste se os números são iguais
-		bool teste = 0;
+		bool teste;
 
 	// enquanto houver elementos em um dos vetores
 		while(i < N1 || j < N2) {
