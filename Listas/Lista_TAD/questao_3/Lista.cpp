@@ -45,7 +45,21 @@ using std::cout;
 		qtd--;
 	}
 // metodo mostrar posição (busca sequencial)
-	// void Lista::mostrarPos(int v) const;
+	void Lista::mostrarPos(int v) const {
+		Node * lista = head;
+		int pos = -1;
+		for(int i = 0; i < qtd; i++) {
+			if(lista->valor == v) {
+				pos = i;
+				break;
+			}
+			lista = lista->next;
+		}
+		if(pos >= 0)
+			cout << "\nO valor " << v << " foi achado na posição " << pos << " da lista.\n\n";
+		else
+			cout << "\nO valor " << v << " não foi achado na lista.\n\n";
+	}
 // metodo mostrar elemento
 	void Lista::mostrarEle(int p) const {
 		Node * onde = head;

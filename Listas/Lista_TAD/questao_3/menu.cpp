@@ -74,19 +74,13 @@
 					}
 					break;
 				case 5:
-					// cout << "Digite um valor: ";
-					// 	cin >> valor;
-					// 	pos = -1;
-					// 	for(int i = 0; i < tam; i++){
-					// 		if(L[i] == valor) {
-					// 			pos = i;
-					// 			break;								
-					// 		}
-					// 	}
-					// 	if(pos >= 0)
-					// 		cout << "\nO valor " << valor << " foi achado na posição " << pos << " da lista.\n\n";
-					// 	else
-					// 		cout << "\nO valor " << valor << " não foi achado na lista.\n\n";
+					if(tam > 0) {
+						cout << "Digite um valor: ";
+							cin >> valor;
+							L->mostrarPos(valor);
+					} else {
+						cout << "\nA lista está vázia!\n\n";
+					}
 					break;
 				case 6:
 					if(tam > 0)
